@@ -1,22 +1,37 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
+import { kBaseUrl } from "../config/app_config";
 import NetworkResponse from "./network_response";
 
 import NetworkService from "./network_service";
 
 export default class NetworkServiceImpl implements NetworkService {
+    // _addInterceptors(token: string) {
+    //     axios.interceptors.request.use((config) => {
+    //         config.headers = {
+    //             "Authroization": `Bearer ${token}`
+    //         }
+    //     })
+    // }
 
+    _createInstance(headers: {}): AxiosInstance {
+        return axios.create({
+            headers: {},
+            baseURL: kBaseUrl
+        })
+    }
 
     async getHttp(url: string, token?: string | undefined): Promise<NetworkResponse | undefined> {
         try {
-            const res = await axios.get(url);
+
+            const res = await this._createInstance({ "Authorization": `Bearer ${token}` }).get(url);
             return _handleResponse(res);
         } catch (error) {
             return _handleResponse();
         }
     }
-    async postHttp(url: string, data: any): Promise<NetworkResponse | undefined> {
+    async postHttp(url: string, data: any, token?: string): Promise<NetworkResponse | undefined> {
         try {
-            const res = await axios.post(url, data);
+            const res = await this._createInstance({ "Authorization": `Bearer ${token}` }).post(url, data);
             return _handleResponse(res);
         } catch (error) {
             return _handleResponse();
