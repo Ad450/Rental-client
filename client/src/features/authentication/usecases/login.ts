@@ -1,19 +1,19 @@
 import UsecaseAlias from "../../../core/interfaces/usecase";
 import { LoginParam } from "../../../core/types.ts/usecase_types";
-import IUserModel from "../data/model/user_model";
+import UserModel from "../model/user_model";
 import AuthRepo from "../repository/auth_repo";
 
 
-export default class Login implements UsecaseAlias<LoginParam, IUserModel>{
+export default class Login implements UsecaseAlias<LoginParam, UserModel>{
     authRepo: AuthRepo;
     constructor(authRepo: AuthRepo) {
         this.authRepo = authRepo;
     }
 
-    async method(param: LoginParam): Promise<IUserModel | null> {
+    async method(param: LoginParam): Promise<UserModel | null> {
 
         try {
-            const results = await this.authRepo.login<LoginParam, IUserModel>(param);
+            const results = await this.authRepo.login<LoginParam, UserModel>(param);
             return results;
         } catch (error) {
             //TODO: handle errors properly
