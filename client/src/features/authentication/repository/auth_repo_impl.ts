@@ -10,22 +10,28 @@ export default class AuthRepoImpl implements AuthRepo {
     constructor(authData: AuthData) {
         this.authData = authData;
     }
+    signup<T, K>(param: T): Promise<K | null> {
+        throw new Error("Method not implemented.");
+    }
+    login<T, K>(param: T): Promise<K | null> {
+        throw new Error("Method not implemented.");
+    }
 
-    async signup<T, K>(param: T): Promise<K | null> {
-        try {
-            const res = await this.authData.signup(param as SignupParam);
-            return (res as UserModel | undefined) as K | null;
-        } catch (error) {
-            throw new Error(error as string);
-        }
-    }
-    async login<T, K>(param: T): Promise<K | null> {
-        try {
-            const res = await this.authData.login(param as LoginParam);
-            return (res as UserModel | undefined) as K | null;
-        } catch (error) {
-            throw new Error(error as string);
-        }
-    }
+    // async signup<T, K>(param: T): Promise<K | null> {
+    //     try {
+    //         const res = await this.authData.signup(param as SignupParam);
+    //         return (res as UserModel | undefined) as K | null;
+    //     } catch (error) {
+    //         throw new Error(error as string);
+    //     }
+    // }
+    // async login<T, K>(param: T): Promise<K | null> {
+    //     try {
+    //         const res = await this.authData.login(param as LoginParam);
+    //         return (res as UserModel | undefined) as K | null;
+    //     } catch (error) {
+    //         throw new Error(error as string);
+    //     }
+    // }
 
 }
