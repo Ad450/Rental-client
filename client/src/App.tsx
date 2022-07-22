@@ -1,18 +1,19 @@
+import FeatureCard from "./core/components/feature_card";
+import FeatureProps from "./core/components/feature_props";
+import Header from "./core/components/header";
+import { RentalWrapper } from "./core/components/styles/app_styles";
 
 
 function App() {
-
-    
   return (
     <div>
-      <header>       
-        <h3 className = "font-sm underline decoration-gray-800 text-red-700"> This is the test text</h3>
-
-        <h4>Why no test showing </h4>
-      </header>
+      <RentalWrapper>
+        <Header></Header>
+        <FeatureProps></FeatureProps>
+        <FeatureCard></FeatureCard>
+      </RentalWrapper>
     </div>
   );
 }
 
 export default App;
-
