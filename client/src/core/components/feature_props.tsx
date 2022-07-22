@@ -19,7 +19,6 @@ export default function FeatureProps() {
           House
         </FeaturePropsText>
         <FeaturePropsText className="test-prop px-14 py-3">
-          {" "}
           Apartment
         </FeaturePropsText>
       </div>
