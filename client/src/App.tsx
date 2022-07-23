@@ -1,5 +1,5 @@
 import FeatureCard from "./core/components/feature_card";
-import FeatureProps from "./core/components/feature_props";
+import Features from "./core/components/features";
 import Footer from "./core/components/footer";
 import Header from "./core/components/header";
 import { RentalWrapper } from "./core/components/styles/app_styles";
@@ -10,7 +10,7 @@ function App() {
     <div>
       <RentalWrapper>
         <Header></Header>
-        <FeatureProps></FeatureProps>
+        <Features></Features>
         <FeatureCard></FeatureCard>
         <Footer></Footer>
       </RentalWrapper>
