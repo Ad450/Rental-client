@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledButton } from "./styles/app_styles";
 
 export default function Navbar(){
     return (
@@ -24,10 +25,8 @@ export default function Navbar(){
         </div>
         <div className="text-xs">
           <ul className="flex items-baseline justify-between px-2 text-gray-800">
-            <li>Contact</li>
-            <li className="ml-2 rounded bg-white px-3 py-2 shadow-md">
-              Signin
-            </li>
+            <li className="px-2">Login</li>
+            <StyledButton backgroundColor="white" color="grey" paddingX="25px" paddingY="10px" borderRadius="10px">SignIn</StyledButton>
           </ul>
         </div>
       </div>

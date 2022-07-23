@@ -17,9 +17,9 @@ export const RentalFeatureProps = styled.div`
 export const RentalWrapper = styled.div``;
 
 interface IStyledText {
-    color: string;
-    fontSize: string;
-    fontWeight?: string;
+  color: string;
+  fontSize: string;
+  fontWeight?: string;
 }
 
 export const StyledText = styled.h3<IStyledText>`
@@ -29,28 +29,47 @@ export const StyledText = styled.h3<IStyledText>`
 `;
 
 interface IStyledButton {
-    paddingX: string;
-    paddingY: string;
-    backgroundColor: string;
-    color: string;
-    borderRadius?: string;
+  paddingX: string;
+  paddingY: string;
+  backgroundColor: string;
+  color: string;
+  borderRadius?: string;
 }
 
 export const StyledButton = styled.button<IStyledButton>`
   padding: ${(props) => props.paddingY} ${(props) => props.paddingX};
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
-  border-radius : ${(props) => props.borderRadius}
-  
-  
+  border-radius: ${(props) => props.borderRadius};
 `;
 
 interface ISpacing {
-    height: string;
-    width: string;
+  height: string;
+  width: string;
 }
 
 export const Spacing = styled.div<ISpacing>`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
+`;
+
+interface IStyledFeatureCard {
+  url: string;
+  height: string;
+  width: string;
+}
+
+export const StyledFeatureCard = styled.div<IStyledFeatureCard>`
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  border-radius: 0.6rem;
+  text-align: start;
+  margin: 0px 15px 0px;
+
+  &:hover {
+    background-image: url(${(props) => props.url});
+    box-shadow: 10px 10px 10px #aaaaaa;
+  }
 `;
