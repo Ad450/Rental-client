@@ -26,7 +26,7 @@ const StyledRatingChild = styled.div`
 const StyledRatingImage = styled.img`
   height: 60px;
   width: 90px;
-`;
+`;  
 
 const StyledDivider = styled.div`
   height: 2px;

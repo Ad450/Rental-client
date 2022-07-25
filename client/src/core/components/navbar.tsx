@@ -1,8 +1,15 @@
 import React from "react";
 import { StyledButton } from "./styles/app_styles";
+import { useSignin, useSigninType } from '../hooks/useSignin';
+import { Signin } from './signin';
+import { useCloseSignin } from '../hooks/useCloseSignin';
 
 export default function Navbar(){
+  const {isSignin, onSigninClicked} = useSignin<useSigninType>();
+  useCloseSignin();
+
     return (
+      
         <div className="flex items-baseline justify-between mt-2">
         <div className="text-lg text-black">
           <ul className="flex items-baseline">
@@ -25,10 +32,15 @@ export default function Navbar(){
         </div>
         <div className="text-xs">
           <ul className="flex items-baseline justify-between px-2 text-gray-800">
+            
             <li className="px-2">Login</li>
-            <StyledButton backgroundColor="white" color="grey" paddingX="25px" paddingY="10px" borderRadius="10px">SignIn</StyledButton>
+           
+            <StyledButton backgroundColor="white" color="grey" paddingX="25px" paddingY="10px" borderRadius="10px" onClick={(e)=> onSigninClicked()}>SignIn</StyledButton>
+            {isSignin? <Signin /> : <div></div>}
           </ul>
         </div>
       </div>
     );
 }
+
+
